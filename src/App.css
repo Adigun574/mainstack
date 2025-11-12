@@ -1,0 +1,6 @@
+.app-bar-container{
+  position: fixed;          /* keeps it in place during scroll */
+  top: 50%;                 /* move to middle vertically */
+  transform: translate(20%, -30%);
+  border-radius: 8px;
+}
