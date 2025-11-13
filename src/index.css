@@ -77,6 +77,15 @@ body {
   border-radius: 8px;
 }
 
+.hide-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
 @media (max-width: 920px) {
   .container {
     padding: 20px;

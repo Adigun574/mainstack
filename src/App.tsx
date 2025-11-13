@@ -13,8 +13,8 @@ function App() {
       </div>
       <div className="app-shell">
 
-        <div style={{ width: "100%", padding: '16px' }}>
-          <div style={{ position: 'fixed', width: '100%', paddingRight: '30px', zIndex: 5000, backgroundColor: '#fff' }}>
+        <div className='app-container'>
+          <div className='nav-container'>
             <div>
               <Navbar />
             </div>

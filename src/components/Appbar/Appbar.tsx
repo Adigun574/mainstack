@@ -9,8 +9,9 @@ const AppBar = () => {
   return (
     <nav className='app-bar'>
       {icons.map((icon) => (
-          <div key={icon.id} className="app-bar-icon">
+          <div key={icon.id} className="app-bar-icon tooltip-container">
             <img src={icon.img} alt={icon.label} />
+            <span className="tooltip">{icon.label}</span>
           </div>
       ))}
     </nav>

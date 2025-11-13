@@ -38,7 +38,7 @@ export default function RevenuePage() {
     }, [])
 
     return (
-        <div className="full-page">
+        <div className="revenue-page">
             <div>
                 <main className="revenue-grid">
                     <section className="left-col">

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./TransactionFilter.css";
 // import Multiselect from 'multiselect-react-dropdown';
-// import { dateQuickButtons, formatDate, transactionStatusesFilter, transactionTypesFilter } from "../../data/transaction";
-import { dateQuickButtons, formatDate, transactionTypesFilter } from "../../data/transaction";
+import { dateQuickButtons, formatDate, transactionStatusesFilter, transactionTypesFilter } from "../../data/transaction";
+// import { dateQuickButtons, formatDate, transactionTypesFilter } from "../../data/transaction";
 import Select from 'react-select';
 
 const TRANSACTION_TYPES = {...transactionTypesFilter};
-// const TRANSACTION_STATUSES = {...transactionStatusesFilter};
+const TRANSACTION_STATUSES = {...transactionStatusesFilter};
 const DATE_QUICK_BUTTONS = [...dateQuickButtons];
 
 export default function FilterPanel({
@@ -51,7 +51,7 @@ export default function FilterPanel({
                     <button className="close-btn" onClick={onClose}>&times;</button>
                 </div>
 
-                <div className="quick-buttons">
+                <div className="quick-buttons hide-scrollbar">
                     {DATE_QUICK_BUTTONS.map((btn) => (
                         <button
                             key={btn.key}
@@ -73,27 +73,21 @@ export default function FilterPanel({
 
                 <div className="filter-group">
                     <label>Transaction Type</label>
-                    {/* <Multiselect
-                        avoidHighlightFirstOption={true}
-                        className="custom-select-field"
-                        showCheckbox={true}
-                        options={TRANSACTION_TYPES.options}
-                        displayValue="name"
-                    /> */}
                     <Select
                         options={TRANSACTION_TYPES.options}
                         isMulti
                         value={selected}
                         onChange={(selectedOptions) => setSelected([...selectedOptions || []])}
-                        getOptionLabel={(option) => option.label}
-                        getOptionValue={(option) => option.value}
+                        getOptionLabel={(option) => option.name}
+                        getOptionValue={(option) => option.id}
                         styles={{
                             control: (base) => ({
                               ...base,
                               borderRadius: "10px",
-                              borderColor: "#ddd",
+                              borderColor: "#eff1f6",
                               minHeight: "44px",
                               boxShadow: "none",
+                              backgroundColor: "#eff1f6"
                             }),
                             multiValue: (base) => ({
                               ...base,
@@ -105,13 +99,28 @@ export default function FilterPanel({
 
                 <div className="filter-group">
                     <label>Transaction Status</label>
-                    {/* <Multiselect
-                        avoidHighlightFirstOption={true}
-                        className="custom-select-field"
-                        showCheckbox={true}
+                    <Select
                         options={TRANSACTION_STATUSES.options}
-                        displayValue="name"
-                    /> */}
+                        isMulti
+                        value={selected}
+                        onChange={(selectedOptions) => setSelected([...selectedOptions || []])}
+                        getOptionLabel={(option) => option.name}
+                        getOptionValue={(option) => option.id}
+                        styles={{
+                            control: (base) => ({
+                              ...base,
+                              borderRadius: "10px",
+                              borderColor: "#eff1f6",
+                              minHeight: "44px",
+                              boxShadow: "none",
+                              backgroundColor: "#eff1f6"
+                            }),
+                            multiValue: (base) => ({
+                              ...base,
+                              backgroundColor: "#f2f4f7",
+                            }),
+                          }}
+                        />
                 </div>
             </div>
 

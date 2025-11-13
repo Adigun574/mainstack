@@ -11,7 +11,3 @@ createRoot(document.getElementById('root')!).render(
     </BrowserRouter>
   </StrictMode>,
 )
-
-// zindex
-// full page
-// xst ppa stln
