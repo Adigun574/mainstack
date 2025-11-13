@@ -1,0 +1,21 @@
+.profile-dropdown-container{
+    padding: 0 20px;
+}
+.user-profile{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.name{
+    margin-bottom: 5px;
+}
+.email{
+    font-size: 12px;
+}
+.link-container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}

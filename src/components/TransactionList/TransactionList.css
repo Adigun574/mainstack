@@ -103,6 +103,27 @@
     color: var(--muted)
 }
 
+.empty-transactions-outter-container{
+    width: 369px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.receipt-icon-container{
+    background: linear-gradient(135deg, #DBDEE6 1.89%, #F6F7F9 98.77%);
+    height: 48px;
+    width: 48px;
+    padding: 12px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clear-filter-btn{
+    width: 117px;
+}
+
 @media (max-width: 920px) {
     .tx-header{
         flex-direction: column;

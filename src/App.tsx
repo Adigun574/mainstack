@@ -3,7 +3,6 @@ import './App.css'
 import AppBar from './components/Appbar/Appbar'
 import Navbar from './components/Navbar/Navbar'
 import RevenuePage from './pages/Revenue/Revenue'
-import Revenue from './pages/Revenue/Revenue'
 
 function App() {
 

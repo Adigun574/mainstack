@@ -15,7 +15,6 @@
 .revenue-grid {
     display: flex;
     gap: 120px;
-    /* width: 100%; */
     width: 1000px;
     align-items: flex-start;
     justify-content: space-between;
@@ -68,8 +67,8 @@
     background: transparent;
     padding: 14px 6px 0 6px;
     border-radius: 10px;
-    width: 100%; /* Add this */
-    max-width: 100%; /* Ensure it never exceeds parent width */
+    width: 100%;
+    max-width: 100%;
 }
 
 .stat-row{

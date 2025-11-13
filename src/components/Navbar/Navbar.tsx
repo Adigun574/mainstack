@@ -10,6 +10,15 @@ import type { IMenu } from "../../models/navigation.model";
 import { useLocation, useNavigate } from "react-router-dom";
 import mainstackLogo from "../../assets/images/mainstack-logo.svg"
 import { useState } from "react";
+import ProfileDropdown from "../ProfileDropdown/ProfileDropdown";
+
+const NAV_MENUS: IMenu[] = [
+  { name: 'Home', route: '/home', icon: <GrHomeRounded /> },
+  { name: 'Analytics', route: '/analytics', icon: <MdOutlineInsertChart /> },
+  { name: 'Revenue', route: '/revenue', icon: <FaMoneyBills /> },
+  { name: 'CRM', route: '/crm', icon: <FiUsers /> },
+  { name: 'Apps', route: '/apps', icon: <AiOutlineAppstore /> }
+]
 
 export default function Navbar(){
 
@@ -17,58 +26,29 @@ export default function Navbar(){
   const navigate = useNavigate();
 
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [profileOpen, setProfileOpen] = useState<boolean>(false);
 
-  const menus: IMenu[] = [
-    {
-      name: 'Home',
-      route: '/home',
-      icon: <GrHomeRounded />,
-    },
-    {
-      name: 'Analytics',
-      route: 'analytics',
-      icon: <MdOutlineInsertChart />
-    },
-    {
-      name: 'Revenue',
-      route: '/revenue',
-      icon: <FaMoneyBills />
-    },
-    {
-      name: 'CRM',
-      route: '/crm',
-      icon: <FiUsers />
-    },
-    {
-      name: 'Apps',
-      route: '/apps',
-      icon: <AiOutlineAppstore />
-    }
-  ]
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleProfile = () => setProfileOpen((prev) => !prev);
 
   return (
     <header className="topbar">
       <div className="topbar-left">
-        <img src={mainstackLogo} />
+        <img src={mainstackLogo} alt="mainstack logo" />
       </div>
 
       <button
         className="hamburger"
-        onClick={() => setMenuOpen((prev) => !prev)}
+        onClick={toggleMenu}
         aria-label="Toggle menu"
       >
         <RxHamburgerMenu />
       </button>
 
-      {/* <nav className="navlinks"> */}
       <nav className={`navlinks ${menuOpen ? "open" : ""}`}>
         {
-          menus.map((menu) => {
+          NAV_MENUS.map((menu) => {
             return (
-              // <a className={location.pathname === menu.route ? "active" : ""}>
-              //   {menu.icon}
-              //   <span>{menu.name}</span>
-              // </a>
               <a
                 key={menu.name}
                 onClick={() => {
@@ -85,7 +65,7 @@ export default function Navbar(){
         }
       </nav>
 
-      <div className="topbar-right">
+      <div className="topbar-right" onClick={toggleProfile}>
         <button className="icon">
           <BsBell />
         </button>
@@ -95,6 +75,16 @@ export default function Navbar(){
           <RxHamburgerMenu />
         </div>
       </div>
+
+      {
+        profileOpen && (
+          <div className="dropdown-menu">
+            <ProfileDropdown />
+          </div>
+        )
+      }
+
+
     </header>
   );
 }
