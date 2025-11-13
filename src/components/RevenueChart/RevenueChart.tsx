@@ -9,13 +9,15 @@ const data = [
 ];
 
 const RevenueChart = () => (
-    <div style={{ width: 700, height: 250 }}>
-    <ResponsiveContainer>
+    // <div style={{ width: 700, height: 250 }}>
+    <div style={{ width: "100%", height: 250 }}>
+    {/* <div className="revenue-chart-container"> */}
+    <ResponsiveContainer width="100%" height="100%">
       <LineChart data={data}>
         <XAxis dataKey="date" tickLine={false} axisLine={false} />
         <YAxis hide />
         <Tooltip />
-        <Line type="monotone" dataKey="value" stroke="#ff6600" strokeWidth={2} dot={false} />
+        <Line type="monotone" dataKey="value" stroke="#ff6600" strokeWidth={1} dot={false} />
       </LineChart>
     </ResponsiveContainer>
   </div>

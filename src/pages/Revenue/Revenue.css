@@ -15,7 +15,8 @@
 .revenue-grid {
     display: flex;
     gap: 120px;
-    width: 100%;
+    /* width: 100%; */
+    width: 1000px;
     align-items: flex-start;
     justify-content: space-between;
 }
@@ -67,6 +68,8 @@
     background: transparent;
     padding: 14px 6px 0 6px;
     border-radius: 10px;
+    width: 100%; /* Add this */
+    max-width: 100%; /* Ensure it never exceeds parent width */
 }
 
 .stat-row{
@@ -94,7 +97,33 @@
     margin: 0
 }
 
+@media (max-width: 1200px) {
+    .revenue-grid {
+        width: 800px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .full-page{
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+}
+
 @media (max-width: 920px) {
+    .full-page{
+        padding-left: 30px;
+        padding-right: 20px !important;
+    }
+    .revenue-grid {
+        gap: 50px;
+        width: 78vw;
+    }
+    
+    .left-col {
+        min-width: 100%;
+    }
+
     .revenue-grid {
         flex-direction: column
     }

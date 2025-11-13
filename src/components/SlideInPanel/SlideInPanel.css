@@ -46,3 +46,14 @@
   overflow-y: auto;
   flex: 1;
 }
+
+@media (max-width: 768px) {
+  .slide-panel {
+    right: -90%;
+    width: 90%;
+  }
+  
+  .slide-panel.open {
+    right: 20px;
+  }
+}

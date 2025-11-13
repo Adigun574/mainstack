@@ -7,12 +7,16 @@ import { AiOutlineAppstore } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import type { IMenu } from "../../models/navigation.model";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import mainstackLogo from "../../assets/images/mainstack-logo.svg"
+import { useState } from "react";
 
 export default function Navbar(){
 
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const menus: IMenu[] = [
     {
@@ -48,11 +52,31 @@ export default function Navbar(){
         <img src={mainstackLogo} />
       </div>
 
-      <nav className="navlinks">
+      <button
+        className="hamburger"
+        onClick={() => setMenuOpen((prev) => !prev)}
+        aria-label="Toggle menu"
+      >
+        <RxHamburgerMenu />
+      </button>
+
+      {/* <nav className="navlinks"> */}
+      <nav className={`navlinks ${menuOpen ? "open" : ""}`}>
         {
           menus.map((menu) => {
             return (
-              <a className={location.pathname === menu.route ? "active" : ""}>
+              // <a className={location.pathname === menu.route ? "active" : ""}>
+              //   {menu.icon}
+              //   <span>{menu.name}</span>
+              // </a>
+              <a
+                key={menu.name}
+                onClick={() => {
+                  navigate(menu.route);
+                  setMenuOpen(false);
+                }}
+                className={location.pathname === menu.route ? "active" : ""}
+              >
                 {menu.icon}
                 <span>{menu.name}</span>
               </a>

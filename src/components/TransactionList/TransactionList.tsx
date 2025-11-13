@@ -38,7 +38,7 @@ export default function TransactionList() {
         <section className="tx-card">
             <div className="tx-header">
                 <div>
-                    <h4>24 Transactions</h4>
+                    <h4>{transactions.length} Transactions</h4>
                     <p>Your transactions for the last 7 days</p>
                 </div>
                 <div className="tx-actions">
