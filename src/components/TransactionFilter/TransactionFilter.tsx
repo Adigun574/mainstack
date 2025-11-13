@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./TransactionFilter.css";
 // import Multiselect from 'multiselect-react-dropdown';
-import { dateQuickButtons, formatDate, transactionStatusesFilter, transactionTypesFilter } from "../../data/transaction";
+// import { dateQuickButtons, formatDate, transactionStatusesFilter, transactionTypesFilter } from "../../data/transaction";
+import { dateQuickButtons, formatDate, transactionTypesFilter } from "../../data/transaction";
 import Select from 'react-select';
 
 const TRANSACTION_TYPES = {...transactionTypesFilter};
-const TRANSACTION_STATUSES = {...transactionStatusesFilter};
+// const TRANSACTION_STATUSES = {...transactionStatusesFilter};
 const DATE_QUICK_BUTTONS = [...dateQuickButtons];
 
 export default function FilterPanel({
