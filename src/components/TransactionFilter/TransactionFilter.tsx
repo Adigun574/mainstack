@@ -84,7 +84,7 @@ export default function FilterPanel({
                         options={TRANSACTION_TYPES.options}
                         isMulti
                         value={selected}
-                        // onChange={(selectedOptions) => setSelected(selectedOptions || [])}
+                        onChange={(selectedOptions) => setSelected([...selectedOptions || []])}
                         getOptionLabel={(option) => option.label}
                         getOptionValue={(option) => option.value}
                         styles={{
