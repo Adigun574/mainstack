@@ -2,7 +2,7 @@ import './Appbar.css';
 import type { IAppBarIcon } from '../../models/appbar.model';
 import { appbarIcons } from '../../data/appbar';
 
-const AppBar = () => {
+const Appbar = () => {
 
   const icons: IAppBarIcon[] = [...appbarIcons];
 
@@ -18,4 +18,4 @@ const AppBar = () => {
   );
 };
 
-export default AppBar;
+export default Appbar;
